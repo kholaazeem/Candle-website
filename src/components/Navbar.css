@@ -1,0 +1,60 @@
+/* Wrapper to center the floating navbar */
+.navbar-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  width: 100%;
+  position: absolute; /* Keeps it overlapping the background */
+  top: 0;
+  z-index: 1000;
+}
+
+/* The Floating Pill Design */
+.custom-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1000px;
+  padding: 12px 30px;
+  background-color: rgba(253, 251, 247, 0.85); /* Off-white transparent */
+  backdrop-filter: blur(10px); /* Glassmorphism blur */
+  border-radius: 50px; /* Pill shape */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Very subtle shadow */
+}
+
+/* Logo Styling */
+.navbar-logo a {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #5B3A7B; /* Purple color from the design */
+  text-decoration: none;
+}
+
+/* Links Container */
+.navbar-links {
+  display: flex;
+  gap: 30px;
+}
+
+/* Individual Links */
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #6c757d; /* Grayish color */
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.4s ease; /* Smooth transition for hover */
+}
+
+/* Smooth Hover Effect */
+.nav-link:hover {
+  color: #000000; /* Smoothly turns black */
+}
+
+/* Active Page State */
+.nav-link.active {
+  color: #5B3A7B; /* Purple color when the page is open */
+}
