@@ -1,0 +1,156 @@
+/* Section Background & Spacing */
+.values-section {
+  background-color: #f1edf7; /* Same warm off-white cream background */
+  padding: 80px 0 100px 0;
+  overflow: hidden; /* Animation ko smooth rakhne ke liye */
+}
+
+/* Container ki initial hidden state */
+.values-container {
+  max-width: 1100px;
+  opacity: 0; /* Shuru mein invisible */
+  transform: translateY(40px); /* Shuru mein thora neechay hoga */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth slide up */
+}
+
+/* Jab React observe karke class add karega tab ye upar aayega */
+.values-section.section-visible .values-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Headings Styling */
+.values-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #8D8D8D;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.values-main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  margin-bottom: 2rem;
+}
+
+/* --- Left Side: Tabs Styling --- */
+.tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Space between buttons */
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 18px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #7A7A7A; /* Inactive text color */
+  border-left: 3px solid transparent; /* Invisible border for inactive */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%; /* Ensure it takes full width of its container */
+}
+
+/* Hover State for Inactive Tabs */
+.tab-btn:hover:not(.active) {
+  color: #4A306D;
+  background-color: rgba(74, 48, 109, 0.03);
+}
+
+/* ACTIVE TAB STYLE (Exact match to image) */
+.tab-btn.active {
+  color: #4A306D; /* Dark vintage purple */
+  background-color: #F8F4F0; /* Light warm beige background */
+  border-left: 3px solid #4A306D; /* Purple left border */
+  font-weight: 600;
+}
+
+
+/* --- Right Side: Content Styling --- */
+.tab-content-wrapper {
+  animation: fadeInRight 0.5s ease-out forwards;
+  padding-left: 4rem; /* YAHAN FASLA BARHAYA HAI (Gap between buttons and text on desktop) */
+}
+
+.content-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #382454; /* Darker purple */
+  margin-bottom: 1.5rem;
+}
+
+.content-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #8C7B8E; /* Muted purplish-gray from the image */
+  max-width: 550px;
+}
+
+/* Smooth Content Switch Animation */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 991px) {
+  .values-main-title {
+    font-size: 3.5rem;
+  }
+  .tab-content-wrapper {
+    padding-left: 2rem; /* Tablet par thora kam fasla */
+  }
+}
+
+/* Mobile Screens (Like the last image) */
+@media (max-width: 768px) {
+  .values-section {
+    padding: 60px 0;
+  }
+  
+  .values-main-title {
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Mobile par buttons ek ke neechay ek aayenge */
+  .tabs-list {
+    flex-direction: column;
+    margin-bottom: 3rem; /* Buttons aur neechay wale content ke darmiyan fasla */
+    gap: 4px;
+  }
+
+  .tab-btn {
+    padding: 16px 20px;
+  }
+
+  /* Content mobile par direct neechay aayega, isliye left padding khatam kar di */
+  .tab-content-wrapper {
+    padding-left: 0; 
+  }
+
+  .content-heading {
+    font-size: 2rem;
+  }
+
+  .content-text {
+    font-size: 1.05rem;
+  }
+}

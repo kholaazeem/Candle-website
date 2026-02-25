@@ -1,60 +1,158 @@
-/* Wrapper to center the floating navbar */
+/* --- Desktop Layout & Positioning --- */
 .navbar-wrapper {
+  position: absolute; /* Keeps it above the hero section */
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 20px;
-  width: 100%;
-  position: absolute; /* Keeps it overlapping the background */
-  top: 0;
+  padding: 24px 20px;
   z-index: 1000;
 }
 
-/* The Floating Pill Design */
+/* EXACT Match to the Search Input Style */
 .custom-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  max-width: 1000px;
-  padding: 12px 30px;
-  background-color: rgba(253, 251, 247, 0.85); /* Off-white transparent */
-  backdrop-filter: blur(10px); /* Glassmorphism blur */
-  border-radius: 50px; /* Pill shape */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); /* Very subtle shadow */
+  width: 100%;
+  max-width: 1050px; /* Matches the width ratio in your images */
+  padding: 12px 36px;
+  
+  /* Solid White Background like an input field */
+  background-color: #FFFFFF; 
+  
+  /* Gol Borders (Pill shape) */
+  border-radius: 999px; 
+  
+  /* Subtle border line just to define the edge */
+  border: 1px solid rgba(224, 207, 245, 0.911); 
+  
+  /* The Shadow (Soft, diffused, with a tiny hint of purple to blend with bg) */
+  box-shadow: 
+    0 12px 35px rgba(74, 48, 109, 0.05), /* Soft purple-ish large shadow */
+    0 4px 10px rgba(0, 0, 0, 0.02);      /* Closer sharp shadow */
 }
 
 /* Logo Styling */
 .navbar-logo a {
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: #5B3A7B; /* Purple color from the design */
+  font-size: 1.6rem;
+  color: #4A306D; /* Deep vintage purple */
   text-decoration: none;
+  font-weight: 500;
+  letter-spacing: -0.5px;
 }
 
-/* Links Container */
+/* Desktop Links Container */
 .navbar-links {
   display: flex;
-  gap: 30px;
+  gap: 36px;
+  align-items: center;
 }
 
-/* Individual Links */
+/* Link Typography */
 .nav-link {
   font-family: 'Inter', sans-serif;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 500;
-  color: #6c757d; /* Grayish color */
+  color: #6B7280; /* Gray color for inactive links */
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: color 0.4s ease; /* Smooth transition for hover */
+  text-transform: capitalize; /* Matches the image (Home, Our Story) */
+  transition: color 0.3s ease-in-out; /* Smooth transition */
 }
 
-/* Smooth Hover Effect */
+/* Hover State - Smoothly to Black */
 .nav-link:hover {
-  color: #000000; /* Smoothly turns black */
+  color: #111827; 
 }
 
-/* Active Page State */
+/* Active State - Purple */
 .nav-link.active {
-  color: #5B3A7B; /* Purple color when the page is open */
+  color: #4A306D;
+  font-weight: 600;
+}
+
+/* --- MOBILE RESPONSIVENESS (HAMBURGER MENU) --- */
+
+/* Hidden on Desktop */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001; /* Keeps icon above the mobile menu */
+}
+
+/* Hamburger Lines */
+.hamburger .bar {
+  width: 22px;
+  height: 2px;
+  background-color: #4A306D;
+  transition: all 0.3s ease-in-out;
+  border-radius: 2px;
+}
+
+/* Media Query for Phones and Tablets (< 768px) */
+@media (max-width: 768px) {
+  .navbar-wrapper {
+    padding: 16px 16px;
+  }
+  
+  .custom-navbar {
+    padding: 14px 24px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Mobile Dropdown Styling */
+  .navbar-links {
+    position: absolute;
+    top: 80px;
+    left: 16px;
+    right: 16px;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    border-radius: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 15px 40px rgba(74, 48, 109, 0.08); /* Updated to match purplish theme */
+    
+    /* Animation hidden states */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-15px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* When Mobile Menu is Open */
+  .navbar-links.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Mobile Links Styling */
+  .nav-link {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+  }
+
+  /* Hamburger Animates to a Cross (X) when open */
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
 }

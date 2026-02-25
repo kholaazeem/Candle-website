@@ -1,0 +1,233 @@
+/* Overall Page Background */
+.hero-wrapper {
+  background-color: #f7f5fa; /* Your exact warm off-white cream background */
+  min-height: 100vh;
+  padding-top: 100px; 
+  padding-bottom: 50px;
+  overflow: hidden;
+  display: flex;
+  align-items: center; /* Vertically centers everything on large screens */
+}
+
+/* Container Spacing */
+.hero-container {
+  max-width: 1250px; /* Slightly wider to let the image breathe */
+  width: 100%;
+}
+
+/* --- Left Side Content Styling --- */
+.hero-content {
+  padding-right: 3rem; /* Gives breathing room between text and image */
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.est-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #8D8D8D;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5rem; 
+  line-height: 1.05;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+/* The italic purple word */
+.hero-italic {
+  font-style: italic;
+  color: #4A306D; 
+  font-weight: 400;
+}
+
+.hero-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #555555;
+  max-width: 420px;
+  margin-bottom: 2.5rem;
+}
+
+/* Custom CTA Button */
+.cta-btn {
+  background-color: #4A306D;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 16px 32px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1; /* Text ko upar rakhne ke liye */
+}
+
+/* The dark background that slides up */
+.cta-btn::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #261838; /* Darker purple */
+  transform: translateY(100%); /* Shuru mein button ke neechay chupa hoga */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Smooth up animation */
+  z-index: -1; /* Text ke peechay rakhne ke liye */
+}
+
+/* Hover karne par background ko oopar lana */
+.cta-btn:hover::before {
+  transform: translateY(0);
+}
+
+.cta-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+.cta-btn:hover .arrow {
+  transform: translateX(5px); 
+}
+/* --- Right Side Image Styling --- */
+.hero-image-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+.image-container {
+  position: relative;
+  width: 100%; /* Now takes full width of the col-lg-6 */
+  height: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04); /* Subtle pro-level shadow */
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  min-height: 600px; /* Forces the image to be tall and prominent */
+  object-fit: cover; /* Ensures it fills the box without stretching */
+  transition: transform 0.7s ease; 
+}
+
+.image-container:hover .hero-image {
+  transform: scale(1.03); 
+}
+
+/* Floating Label on Image */
+.floating-label {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(253, 251, 247, 0.95); 
+  backdrop-filter: blur(8px);
+  padding: 12px 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+  text-transform: uppercase;
+  pointer-events: none; 
+}
+
+/* --- Simple Load Animations --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- PRO-LEVEL RESPONSIVENESS --- */
+
+/* Tablet Landscape & Small Laptops */
+@media (max-width: 1199px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+  .hero-image {
+    min-height: 500px;
+  }
+}
+
+/* Tablets (Portrait) */
+@media (max-width: 991px) {
+  .home-wrapper {
+    padding-top: 120px;
+    align-items: flex-start;
+  }
+  
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 3.5rem;
+    text-align: center; /* Centering content on tablet/mobile looks cleaner */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-description {
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 4rem;
+  }
+
+  .hero-image {
+    min-height: 450px;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .home-wrapper {
+    padding-top: 100px;
+    padding-bottom: 30px;
+  }
+
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .cta-btn {
+    width: 100%; /* Full width button on small screens */
+    max-width: 350px;
+  }
+
+  .hero-image {
+    min-height: 350px;
+  }
+
+  .floating-label {
+    font-size: 0.65rem;
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+  }
+}
