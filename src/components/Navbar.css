@@ -1,6 +1,6 @@
 /* --- Desktop Layout & Positioning --- */
 .navbar-wrapper {
-  position: absolute; /* Keeps it above the hero section */
+  position: sticky; /* Keeps it above the hero section */
   top: 0;
   left: 0;
   width: 100%;
@@ -19,8 +19,10 @@
   max-width: 1050px; /* Matches the width ratio in your images */
   padding: 12px 36px;
   
-  /* Solid White Background like an input field */
-  background-color: #FFFFFF; 
+  /* YAHAN CHANGE KIYA HAI: Glassmorphism Blur Effect */
+  background-color: rgba(255, 255, 255, 0.75); /* 75% white, 25% transparent */
+  backdrop-filter: blur(16px); /* Peechay aane wali cheezon ko blur karega */
+  -webkit-backdrop-filter: blur(16px); /* Safari support ke liye */
   
   /* Gol Borders (Pill shape) */
   border-radius: 999px; 

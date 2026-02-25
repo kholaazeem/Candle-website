@@ -1,0 +1,152 @@
+/* Page Wrapper */
+.terms-page-wrapper {
+  padding-top: 150px;
+  padding-bottom: 120px;
+  background-color: transparent;
+  /* Ye animation ab properly kaam karegi */
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* =========================================
+   ANIMATION KEYFRAMES (YAHAN ADD KIYA HAI)
+   ========================================= */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px); /* Thora neechay se start hoga */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Apni asli jagah par aayega */
+  }
+}
+
+/* =========================================
+   HEADER SECTION
+   ========================================= */
+.terms-header {
+  margin-bottom: 80px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(74, 48, 109, 0.1); /* Subtle separator line */
+}
+
+.legal-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #8D8D8D;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.terms-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  margin: 0;
+}
+
+/* =========================================
+   LEFT: STICKY SIDEBAR
+   ========================================= */
+.sticky-sidebar {
+  position: sticky;
+  top: 120px; /* Navbar ke neechay fix hone ka fasla */
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Links ke darmiyan gap */
+}
+
+.sidebar-link {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 0 10px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #7A7A7A; /* Inactive color */
+  border-left: 2px solid transparent; /* Invisible border */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.sidebar-link:hover {
+  color: #4A306D;
+}
+
+/* Active Sidebar Link Style */
+.sidebar-link.active {
+  color: #4A306D;
+  font-weight: 600;
+  border-left: 2px solid #4A306D; /* Purple left line */
+}
+
+/* =========================================
+   RIGHT: CONTENT BLOCKS
+   ========================================= */
+.term-block {
+  margin-bottom: 60px;
+}
+
+.term-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #382454;
+  margin-bottom: 1.5rem;
+}
+
+.term-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #6C6C6C;
+  margin: 0;
+}
+
+
+/* =========================================
+   RESPONSIVENESS (Mobile & Tablet)
+   ========================================= */
+@media (max-width: 991px) {
+  .terms-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .terms-page-wrapper {
+    padding-top: 110px;
+  }
+  
+  .terms-header {
+    margin-bottom: 40px;
+  }
+
+  .terms-title {
+    font-size: 3rem;
+  }
+
+  /* Left sidebar ko mobile par completely hide kar diya */
+  .terms-content-row > div:first-child {
+    display: none;
+  }
+
+  .term-heading {
+    font-size: 1.8rem;
+  }
+  
+  .term-desc {
+    font-size: 1rem;
+  }
+}

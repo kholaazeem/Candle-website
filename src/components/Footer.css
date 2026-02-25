@@ -1,0 +1,113 @@
+/* Footer Wrapper */
+.footer-section {
+  position: relative;
+  padding-top: 130px;
+  background-color: white;
+  overflow: hidden; 
+  /* YAHAN LINE ADD KI HAI */
+  border-top: 1px solid rgba(74, 48, 109, 0.15); /* Light purplish elegant line */
+}
+
+/* --- THE MASSIVE WATERMARK --- */
+.footer-watermark {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Playfair Display', serif;
+  font-size: 21vw; /* Font size screen ki width ke hisaab se bara hoga */
+  color: rgb(220, 205, 240); /* Light purplish semi-transparent */
+  font-weight: 400;
+  letter-spacing: -40px;
+  line-height: 1;
+  white-space: nowrap;
+  pointer-events: none; /* Mouse clicks iske aar-paar ja saken */
+  z-index: 0; /* Content ke peechay */
+}
+
+/* Content Container */
+.footer-content {
+  position: relative;
+  z-index: 1; /* Watermark ke upar */
+}
+
+/* Headings */
+.footer-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #4A306D; /* Deep vintage purple */
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+/* Links & Text */
+.footer-links-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link, .footer-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  color: #7A7A7A; /* Muted gray text */
+  text-decoration: none;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #4A306D; /* Darker purple on hover */
+}
+
+/* --- BOTTOM BAR --- */
+.footer-bottom {
+  margin-top: 5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgb(215, 209, 224); /* Light purplish line */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #8d8d8d;
+  padding-bottom: 130px;
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .footer-section {
+    padding-top: 60px;
+  }
+
+  .footer-watermark {
+    font-size: 30vw; /* Watermark thora bada kiya taake screen cover kare */
+    top: 65%; /* Thora neechay shift kiya jese image mein 'Connect' aur 'Promise' ke peeche hai */
+    letter-spacing: -0.05em;
+  }
+
+  .footer-col {
+    margin-bottom: 2.5rem;
+    text-align: left; /* Image ke mutabiq Center ki jagah Left align kar diya */
+  }
+
+  .footer-links-container {
+    align-items: flex-start; /* Links ko left par fix kiya */
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center; /* Bottom copyright text center mein hi hai */
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+  .footer-bottom p {
+ padding-bottom: 5px;
+}
+
+}

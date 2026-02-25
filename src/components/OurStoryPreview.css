@@ -1,0 +1,138 @@
+/* Section Background & Animation Setup */
+.story-preview-section {
+  padding: 100px 0;
+  background-color: transparent; /* Inherits main background */
+  overflow: hidden;
+}
+
+.story-container {
+  max-width: 1200px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.story-preview-section.section-visible .story-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Left Side: Image --- */
+.story-image-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5; /* Yeh image ko ek perfect shape dega aur extra lambaai kaat dega */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05); 
+}
+
+.story-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Image ko box mein fit karega bina stretch kiye */
+  object-position: center top; /* YAHAN MAGIC HAI: Image ka upar wala hissa dikhayega aur paon (neechay) cut jayenge */
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+/* Image par hover karne se halka sa zoom-in effect */
+.story-image-wrapper:hover .story-image {
+  transform: scale(1.03);
+}
+
+/* Image par hover karne se halka sa zoom-in effect */
+.story-image-wrapper:hover .story-image {
+  transform: scale(1.03);
+}
+
+/* --- Right Side: Text & Quote --- */
+.story-text-content {
+  padding-left: 5rem; /* Tasweer aur text ke darmiyan bada fasla */
+}
+
+.story-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem; /* Bada italic font tasweer ke mutabiq */
+  font-style: italic;
+  color: #4A306D; /* Deep vintage purple */
+  line-height: 1.15;
+  font-weight: 400;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+/* Link Styling */
+.story-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4A306D;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease;
+}
+
+.story-link:hover {
+  color: #111827; /* Hover par dark/black ho jayega */
+}
+
+.story-link .arrow {
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.story-link:hover .arrow {
+  transform: translateX(5px); /* Arrow smoothly aagay slide hoga */
+}
+
+/* --- RESPONSIVENESS --- */
+
+/* Tablet Landscape */
+@media (max-width: 1199px) {
+  .story-quote {
+    font-size: 3rem;
+  }
+  .story-text-content {
+    padding-left: 3rem;
+  }
+}
+
+/* Tablets Portrait (Stack Layout) */
+@media (max-width: 991px) {
+  .story-preview-section {
+    padding: 70px 0;
+  }
+  
+  .story-image {
+    min-height: 400px;
+  }
+  
+  .story-text-content {
+    padding-left: 0;
+    padding-top: 3rem;
+    text-align: center; /* Center text on mobile/tablet */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .story-preview-section {
+    padding: 50px 0;
+  }
+  
+  .story-quote {
+    font-size: 2.3rem; /* Mobile par font size chota kiya */
+    margin-bottom: 2rem;
+  }
+  
+  .story-image {
+    min-height: 350px;
+  }
+}

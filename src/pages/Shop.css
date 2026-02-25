@@ -1,0 +1,187 @@
+/* Page Wrapper */
+.shop-page-wrapper {
+  padding-top: 150px;
+  padding-bottom: 120px;
+  background-color: transparent;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* =========================================
+   HEADER SECTION
+   ========================================= */
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Text aur button ko bottom align rakhega */
+  margin-bottom: 80px;
+}
+
+.collection-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #8D8D8D;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.collection-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  color: #1a1a1a;
+  letter-spacing: -1px;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Button override for Shop page if needed */
+.shop-btn {
+  margin-bottom: 5px;
+}
+
+/* =========================================
+   PRODUCT GRID & STAGGER EFFECT
+   ========================================= */
+.product-grid {
+  row-gap: 60px; /* Mobile ke liye gap */
+}
+
+/* Desktop Stagger: Right side (even columns) ko thora neechay karna */
+@media (min-width: 768px) {
+  .product-grid {
+    row-gap: 80px;
+  }
+  .product-card-col:nth-child(even) {
+    margin-top: 120px; /* Right column products ko neechay dhakel raha hai */
+  }
+}
+
+.product-card {
+  width: 100%;
+  cursor: pointer;
+}
+
+/* =========================================
+/* =========================================
+   IMAGE HOVER EFFECT (1 Sec Delay & Zoom)
+   ========================================= */
+.product-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5; 
+  overflow: hidden; /* Zaroori hai taake zoom honay par image box se bahar na niklay */
+  background-color: #f8f6fa;
+  margin-bottom: 1.5rem;
+}
+
+/* Dono images ke liye common styles aur smooth zoom transition */
+.img-hover, .img-default {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* Smooth zoom effect ke liye transition */
+  transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+/* The Lifestyle Image (Hamesha peechay chhupi rahegi) */
+.img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  /* Note: Pehle wala 'transform: scale(1.03)' hata diya hai taake normal start ho */
+}
+
+/* The Main Product Image (Upar rahegi) */
+.img-default {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+  /* Jab mouse hatayen toh wapis aane ki transition (Opacity par koi delay nahi) */
+  transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), opacity 0.4s ease 0s;
+}
+
+/* --- H O V E R   A C T I O N S --- */
+
+/* 1. Zoom Effect (Ye FORAN hoga jese hi mouse aayega) */
+/* Hum dono images ko zoom kar rahe hain taake swap hotay waqt smooth lagay */
+.product-card:hover .img-default,
+.product-card:hover .img-hover {
+  transform: scale(1.06); /* Premium slight zoom in */
+}
+
+/* 2. The Swap Effect (Ye 1 SECOND BAAD hoga) */
+.product-card:hover .img-default {
+  opacity: 0; /* Upar wali image gayab hogi */
+  /* Transform wesa hi rahega, lekin Opacity par 1s ka delay laga diya */
+  transition: transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), opacity 0.5s ease 1s; 
+}
+
+/* =========================================
+   PRODUCT TYPOGRAPHY
+   ========================================= */
+.product-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.3rem;
+}
+
+.product-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #382454;
+  margin: 0;
+}
+
+.product-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.product-fit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: #8D8D8D;
+}
+
+/* =========================================
+   RESPONSIVENESS (Mobile & Tablet)
+   ========================================= */
+@media (max-width: 991px) {
+  .collection-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-page-wrapper {
+    padding-top: 110px;
+    padding-bottom: 60px;
+  }
+
+  .shop-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .collection-title {
+    font-size: 3rem;
+  }
+
+  .product-title {
+    font-size: 1.5rem;
+  }
+
+  /* Mobile par stagger effect khatam kar diya taake ek ke neechay ek seedha aayen */
+  .product-card-col:nth-child(even) {
+    margin-top: 0;
+  }
+}

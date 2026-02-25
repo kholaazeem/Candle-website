@@ -1,0 +1,184 @@
+/* Page Wrapper */
+.our-story-page {
+  padding-top: 150px; /* Space for transparent navbar */
+  padding-bottom: 80px;
+  background-color: transparent; 
+}
+
+/* =========================================
+   SECTION 1: Intro & Hero Image
+   ========================================= */
+.story-intro-section {
+  margin-bottom: 100px;
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.intro-text-content {
+  max-width: 800px; /* Text ko zyada phailne se roke ga */
+  margin-bottom: 4rem;
+}
+
+.story-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #8D8D8D;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.story-main-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  line-height: 1.05;
+  color: #1a1a1a;
+  margin-bottom: 2rem;
+  letter-spacing: -1px;
+}
+
+.story-intro-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: #555555;
+  max-width: 700px;
+}
+
+.intro-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+}
+
+.full-width-image {
+  width: 100%;
+  max-height: 600px; /* Image ki lambaai limit karne ke liye */
+  object-fit: cover;
+  object-position: center;
+}
+
+/* =========================================
+   SECTION 2: Massive Quote & Mission
+   ========================================= */
+.story-mission-section {
+  margin-bottom: 120px;
+}
+
+.massive-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-style: italic;
+  color: #4A306D;
+  line-height: 1.2;
+  font-weight: 400;
+  margin-bottom: 4rem;
+  letter-spacing: -0.5px;
+}
+
+.mission-paragraphs {
+  max-width: 650px; /* Paragraph ko left side par tight rakhne ke liye */
+}
+
+.mission-paragraphs p {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #6C6C6C;
+  margin-bottom: 2rem;
+}
+
+/* =========================================
+   SECTION 3: Our Promise
+   ========================================= */
+.story-promise-section {
+  margin-bottom: 50px;
+}
+
+.promise-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+}
+
+.promise-image {
+  width: 100%;
+  aspect-ratio: 4 / 5; /* Creates a nice portrait shape */
+  object-fit: cover;
+  object-position: center;
+}
+
+.promise-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+}
+
+.promise-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #555555;
+}
+
+/* --- Simple Load Animation --- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* =========================================
+   RESPONSIVENESS (Mobile & Tablet)
+   ========================================= */
+
+@media (max-width: 991px) {
+  .story-main-title {
+    font-size: 4rem;
+  }
+  .massive-quote {
+    font-size: 2.8rem;
+  }
+  .full-width-image {
+    max-height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-story-page {
+    padding-top: 110px;
+  }
+  .story-main-title {
+    font-size: 3rem;
+  }
+  .story-intro-desc {
+    font-size: 1rem;
+  }
+  .full-width-image {
+    max-height: 300px;
+  }
+  .story-intro-section {
+    margin-bottom: 60px;
+  }
+  
+  .story-mission-section {
+    margin-bottom: 70px;
+  }
+  .massive-quote {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+  }
+  .mission-paragraphs p {
+    font-size: 1rem;
+  }
+
+  .promise-heading {
+    font-size: 2rem;
+  }
+  .promise-text-content {
+    text-align: center; /* Mobile pe neechay wala text center */
+    padding-top: 1rem;
+  }
+}
